@@ -1,0 +1,165 @@
+import random
+import collections
+
+# выводит на экран приветствие
+def print_sc():
+    print('''    добро пожаловать в игру виселица! правила простые:
+    я загадываю слово, вывожу на экран количество букв в этом слове,
+    ты угадываешь. у тебя есть шесть попыток.''')
+    
+# читает файл и преващает его в список слов, выбирает рандомное слово
+def read_file(file): 
+    with open (file, 'r', encoding = 'utf-8') as f:
+        text = f.read()
+    text = text.replace(' ','').replace(',','')
+    text = text.split()
+    a = random.choice(text)
+    return a
+
+#если есть буква в слове выдает слово, если нет - отвечает
+def n_ind (word, answer, letter, counter):
+    answer = list(answer)
+    if letter in answer:
+        counter += 1
+        man(counter)
+        print('эта буква уже была. '+ 'Осталось попыток:', counter)
+    elif letter in word:
+        answer = pr_slovo(word, answer, letter)
+        man(counter)
+        print('правильно!',answer)
+    else:
+        counter += 1
+        answer = ''.join(answer)
+        print('ответ неверный', 'Осталось попыток:', counter)
+        man(counter)
+    return answer, counter
+
+# обрабатывает выводное слово
+def pr_slovo (word, answer, letter):
+    for i in word:
+        if i == letter:
+            answer = list(answer)
+            n = word.index(letter)
+            answer[n] = letter
+            word = word.replace(word[n], ' ', 1)
+    answer = ''.join(answer)
+    return answer
+
+# обрабатывает выбор темы
+def inp():
+    inp = 0
+    while inp != 1 or inp != 2 or inp != 3:
+        inp = input('выберите одну из трех возможжных тем: 1-растения, 2-станци метро, 3-животные')
+        print(inp)
+        if inp == '1':
+            text ='text1.txt'
+            break
+        elif inp == '2':
+            text ='text2.txt'
+            break
+        elif inp == '3':
+            text ='text3.txt'
+            break
+        else:
+            print ('некорректный ввод. вводите еще')
+    return text
+
+# обрабатывает ввод буквы. если буква то нормально, если не буква, то выдает подсказку
+def inp_letter():
+    letter = 0
+    letter = input("введите букву из загаданного слова! Ваш ответ: ")
+    if str(letter) == True:
+        letter = letter.lower()
+    return letter
+    if letter == range(0,1):
+        print('Это была не буква! а нужна буква!!!')
+
+# прога рисует детали человека
+def man (counter):
+    man_list = ['''
++----+
+|
+|
+|
+|
+|
+|
+-''',"""
++----+
+|    0
+|
+|
+|
+|
+|
+-""",'''
++----+
+|    0
+|    0
+|    
+|
+|
+|
+-''','''
++----+
+|    0
+|    0
+|    0
+|    
+|
+|
+-''','''
++----+
+|    0
+|    0
+|    0
+|    0
+|
+|
+-''','''
++----+
+|    0
+|    0
+|    0
+|    0
+|    0
+|
+-''','''
++----+
+|    0
+|    0
+|    0
+|    0
+|    0
+|    0
+-'''
+]
+    print(man_list[counter])
+    
+
+
+ 
+print(inp)           
+print_sc()
+file = inp()
+word = read_file(file)
+print(word)
+answer =(len(word)*"_")
+print (answer)
+answer = list(answer)
+counter = 0
+while counter < 7 or answer == word:
+    if counter < 7:
+        letter = inp_letter()
+        answer, counter = n_ind(word, answer, letter, counter)
+        if answer == word:
+            print('pobeda!')
+            break
+    if counter == 7:
+        print('ты проиграл')
+
+
+
+
+
+
