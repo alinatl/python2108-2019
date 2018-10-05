@@ -4,8 +4,7 @@ import json
 #скачиваем что надо на комп
 def d_comp():
     login_list = ['alinatl', 'elmiram', 'maryszmary', 'lizaku', 'nevmenandr', 'ancatmara', 'roctbb', 'akutuzov', 'gricolamz', 'lehkost', 'kylepjohnson', 'mikekestemont',
-'demidovakatya', 'shwars', 'JelteF', 'timgraham', 'arogozhnikov', 'jasny', 'bcongdon', 'whyisjake', 'gvanrossum'
-]
+'demidovakatya', 'shwars', 'JelteF', 'timgraham', 'arogozhnikov', 'jasny', 'bcongdon', 'whyisjake', 'gvanrossum']
     str_login = ', '.join(login_list)
     login = ''
     while login not in login_list:
@@ -114,8 +113,7 @@ def count_max_lang(login_list, lang):
 
 
 login_list = ['alinatl', 'elmiram', 'maryszmary', 'lizaku', 'nevmenandr', 'ancatmara', 'roctbb', 'akutuzov', 'gricolamz', 'lehkost', 'kylepjohnson', 'mikekestemont',
-'demidovakatya', 'shwars', 'JelteF', 'timgraham', 'arogozhnikov', 'jasny', 'bcongdon', 'whyisjake', 'gvanrossum'
-]
+'demidovakatya', 'shwars', 'JelteF', 'timgraham', 'arogozhnikov', 'jasny', 'bcongdon', 'whyisjake', 'gvanrossum']
 data, user = d_comp()
 print('\n вы выбрали пользователя:', user, '\n')
 name = name(user)
