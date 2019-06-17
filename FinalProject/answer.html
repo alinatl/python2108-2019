@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<center>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }} />
+			<title>Final Project</title>
+		</head>
+		<body>
+			<div id="header">
+				<p>Как говорится,</p>
+			</div>
+			<div id="content">
+				<p>{{ answer }}</p>
+				<p><a href={{ url_for('index') }}>Еще разок</a></p>
+			</div>
+		</body>
+	</center>
+</html>
