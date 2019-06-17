@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<center>
+		<head>
+			<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+			<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }} />
+			<title>Final Project</title>
+		</head>
+		<body>
+			<div id="header">
+				<p>Я Вас слушаю</p>
+			</div>
+			<div id="content">
+				<form method="POST"  action="{{ url_for('answer') }}">
+					<p><input type="text" name="message" value="Введите Ваше сообщение" onfocus="this.value=''"></p>
+					<p><input type="submit" value="Отправить"></p>
+				</form>
+			</div>
+		</body>
+	</center>
+</html>

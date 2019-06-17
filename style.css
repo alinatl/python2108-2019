@@ -1,0 +1,29 @@
+body {
+background-image: url(1.png);
+background-size: cover;
+}
+#header {
+font-size:38px;
+background-color: #8c869f54;
+width: 50%;
+}
+#content {
+font-size: 20px;
+margin-top: 360px;
+background-color: #f7c68875;
+padding: 10px;
+width: 50%;
+}
+a {
+font-size: 14px;
+color:#000000;
+}
+a:active {
+color:#2c6623;
+}
+a:visited {
+color:#000000;
+}
+a:hover {
+color:#339900;
+}
